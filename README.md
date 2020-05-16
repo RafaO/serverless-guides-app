@@ -8,6 +8,8 @@ This application implements OAuth authentication and allows users to add Points 
 
 The application will allow each user to see the POI he/she chreated, delete them and update them. It also allows users to attach an image to an existing POI he/she created.
 
+Additionally, users will also be able to get the POI from an specific city. Which required an extra index in the DB.
+
 # Points of interests
 
 The application stores POI items, and each POI consists of the following items:
