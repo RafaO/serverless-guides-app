@@ -14,7 +14,7 @@ export class PoiAccess {
 
     constructor(
         private readonly docClient: DocumentClient = createDynamoDBClient(),
-        private readonly userIdIndex = process.env.USER_ID_INDEX,
+        private readonly cityIndex = process.env.CITY_INDEX,
         private readonly poiTable = process.env.POI_TABLE,
         private readonly bucketName = process.env.IMAGES_S3_BUCKET) {
     }
@@ -22,10 +22,23 @@ export class PoiAccess {
     async getAllPoi(userId: string): Promise<PoiItem[]> {
         const result = await this.docClient.query({
             TableName: this.poiTable,
-            IndexName: this.userIdIndex,
             KeyConditionExpression: 'userId = :userId',
             ExpressionAttributeValues: {
                 ':userId': userId
+            }
+        }).promise()
+
+        const items = result.Items
+        return items as PoiItem[]
+    }
+
+    async getCityPoi(city: string): Promise<PoiItem[]> {
+        const result = await this.docClient.query({
+            TableName: this.poiTable,
+            IndexName: this.cityIndex,
+            KeyConditionExpression: 'city = :city',
+            ExpressionAttributeValues: {
+                ':city': city
             }
         }).promise()
 

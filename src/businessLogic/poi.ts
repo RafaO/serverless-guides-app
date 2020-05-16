@@ -20,6 +20,10 @@ export async function getAllPoi(userId: string): Promise<PoiItem[]> {
     return poiAccess.getAllPoi(userId)
 }
 
+export async function getCityPoi(city: string): Promise<PoiItem[]> {
+    return poiAccess.getCityPoi(city)
+}
+
 export async function createPoi(
     CreatePoiRequest: CreatePoiRequest,
     userId: string
