@@ -38,6 +38,37 @@
 					"response": []
 				},
 				{
+					"name": "Get city poi",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/poi/city/madrid",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"poi",
+								"city",
+								"madrid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create poi",
 					"request": {
 						"method": "POST",
